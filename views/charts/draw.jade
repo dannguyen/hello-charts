@@ -1,0 +1,20 @@
+extends charts-layout
+
+
+block content
+
+  //- script(type='text/javascript').
+  //-   var z = JSON.parse('!{arr}');
+
+  h2 Chart: #{chart}
+
+
+  div#the-chart
+
+
+  script(type='text/javascript').
+    $.getJSON('/charts/#{chart}', function(chart_data){
+        drawChart("#the-chart", chart_data);
+      })
+
+
